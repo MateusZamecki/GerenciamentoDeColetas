@@ -1,14 +1,16 @@
+import { Entidade } from "../entidade";
+
 export class Produto extends Entidade{
 
-    valorDeVendaKg:number;
-    custoDeCompraKg:number;
-    quantidade:number;
+    private ValorDeVendaKg:number;
+    private CustoDeCompraKg:number;
+    private Quantidade:number;
 
     constructor(id:number, nome:string, data:Date, valorDeVendaKg:number, custoDeCompraKg:number, quantidade:number) {
         super(id,nome,data);
-        this.valorDeVendaKg = valorDeVendaKg;
-        this.custoDeCompraKg = custoDeCompraKg;
-        this.quantidade = quantidade;
+        this.ValorDeVendaKg = valorDeVendaKg;
+        this.CustoDeCompraKg = custoDeCompraKg;
+        this.Quantidade = quantidade;
     }
     
 }

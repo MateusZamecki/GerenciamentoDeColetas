@@ -1,25 +1,25 @@
-import { Coleta } from "../coletas/coleta";
-import { UsuarioDto } from "./dtos/usuarioDto";
-import { Entidade } from "../entidade";
-import { TipoDePermissao } from "./tipoDePermissao";
+import { Coleta } from "../coletas/Coleta";
+import { UsuarioDto } from "./dtos/UsuarioDto";
+import { Entidade } from "../Entidade";
+import { TipoDePermissao } from "./TipoDePermissao";
 
 export class Usuario extends Entidade{
 
-    private senha: string;
-    private cpf: string;
-    private tipoDePermissao: TipoDePermissao;
-    private coletas: Array<Coleta>;
+    private Senha: string;
+    private Cpf: string;
+    private TipoDePermissao: TipoDePermissao;
+    private Coletas: Array<Coleta>;
 
     constructor(id:number, nome:string, data:Date, senha:string, cpf:string, tipoDePermissao:TipoDePermissao, coletas: Array<Coleta>){
         super(id,nome,data);
-        this.validarDadosObrigatorios(id, nome, data, senha, cpf, tipoDePermissao);
-        this.senha = senha;
-        this.cpf = cpf;
-        this.tipoDePermissao = tipoDePermissao;
-        this.coletas = coletas;
+        this.ValidarDadosObrigatorios(id, nome, data, senha, cpf, tipoDePermissao);
+        this.Senha = senha;
+        this.Cpf = cpf;
+        this.TipoDePermissao = tipoDePermissao;
+        this.Coletas = coletas;
     }
 
-    private validarDadosObrigatorios(id:number, nome:string, data:Date, senha:string, cpf:string, tipoDePermissao:TipoDePermissao): void{
+    private ValidarDadosObrigatorios(id:number, nome:string, data:Date, senha:string, cpf:string, tipoDePermissao:TipoDePermissao): void{
         var dados = [id,nome,data,senha,cpf,tipoDePermissao];
         dados.forEach(dado =>{
             if(dado == null){
@@ -27,11 +27,10 @@ export class Usuario extends Entidade{
             }
         });
 
-        this.validarCpf(cpf);
-        
+        this.ValidarCpf(cpf);        
     }
 
-    private validarCpf(cpf:string):void {
+    private ValidarCpf(cpf:string):void {
         var soma;
         var resto;
         soma = 0;
@@ -66,20 +65,20 @@ export class Usuario extends Entidade{
         }
     }
 
-    public obterInformacoesDoUsuario(): UsuarioDto{
+    public ObterInformacoesDoUsuario(): UsuarioDto{
         const dto: UsuarioDto = {
-            id: this.id,
-            nome: this.nome,
-            data: this.data,
-            senha: this.senha,
-            cpf: this.cpf,
-            tipoDePermissao: this.tipoDePermissao,
-            coletas: this.coletas
+            id: this.Id,
+            nome: this.Nome,
+            data: this.Data,
+            senha: this.Senha,
+            cpf: this.Cpf,
+            tipoDePermissao: this.TipoDePermissao,
+            coletas: this.Coletas
         };
         return dto;
     }
 
-    public alterarPemissao(tipoDePermissao:TipoDePermissao): void{
-        this.tipoDePermissao = tipoDePermissao;
+    public AlterarPemissao(tipoDePermissao:TipoDePermissao): void{
+        this.TipoDePermissao = tipoDePermissao;
     }
 }

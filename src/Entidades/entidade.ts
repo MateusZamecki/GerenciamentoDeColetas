@@ -1,20 +1,20 @@
 export abstract class Entidade{
 
-    id: number;
-    nome: string;
-    data: Date;
+    Id: number;
+    Nome: string;
+    Data: Date;
 
     constructor(id: number, nome: string, data: Date){
-        this.id = id;
-        this.nome = nome;
-        this.data = data;
+        this.Id = id;
+        this.Nome = nome;
+        this.Data = data;
     }
 
-    public alterarNome(nome: string): void{
-        this.nome = nome;
+    public AlterarNome(nome: string): void{
+        this.Nome = nome;
     }
 
-    public alterarData(data: Date): void{
-        this.data = data;
+    public AlterarData(data: Date): void{
+        this.Data = data;
     }
 }

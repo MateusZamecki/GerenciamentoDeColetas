@@ -1,6 +1,6 @@
 describe('testes funcionais', () => {
   it('deve retornar um usuario', async () => {
-    const { body, status } = await global.testRequest.get('/login');
+    const { body, status } = await global.testRequest.get('/Login');
     expect(status).toBe(200);
     expect(body).toEqual([
       {
