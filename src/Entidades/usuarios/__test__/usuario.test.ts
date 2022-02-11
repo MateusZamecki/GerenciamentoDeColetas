@@ -1,4 +1,4 @@
-import { Coleta } from "@src/Entidades/coletas/Coleta";
+import { Coleta } from "@src/Entidades/Coletas/Coleta";
 import { Usuario } from "../Usuario";
 import { TipoDePermissao } from "../TipoDePermissao";
 

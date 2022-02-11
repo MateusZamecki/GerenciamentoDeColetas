@@ -1,4 +1,4 @@
-import { Coleta } from "../coletas/Coleta";
+import { Coleta } from "../Coletas/Coleta";
 import { UsuarioDto } from "./dtos/UsuarioDto";
 import { Entidade } from "../Entidade";
 import { TipoDePermissao } from "./TipoDePermissao";
