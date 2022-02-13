@@ -1,8 +1,8 @@
 import { Server } from '@overnightjs/core';
 import bodyParser from 'body-parser';
 import { Application } from 'express';
-import { LoginController } from './controllers/usuario/Login';
-import './util/Module-alias';
+import { LoginController } from './controllers/Usuario/Login';
+import './Util/Module-alias';
 
 export class SetupServer extends Server {
   constructor(private port = 3000) {

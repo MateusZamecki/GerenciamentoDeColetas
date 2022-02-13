@@ -1,12 +1,12 @@
-import { Coleta } from "@src/Entidades/coletas/Coleta";
+import { Coleta } from "@src/Entidades/Coletas/Coleta";
 import { TipoDePermissao } from "../TipoDePermissao";
 
 export interface UsuarioDto{
-    id: number;
-    nome: string;
-    data: Date;
-    senha: string;
-    cpf: string;
-    tipoDePermissao: TipoDePermissao;
-    coletas: Array<Coleta>;
+    Id: number;
+    Nome: string;
+    Data: Date;
+    Senha: string;
+    Cpf: string;
+    TipoDePermissao: TipoDePermissao;
+    Coletas: Array<Coleta>;
 }
