@@ -1,32 +1,24 @@
-import { Coleta } from "../Coletas/Coleta";
-import { UsuarioDto } from "./Dtos/UsuarioDto";
 import { Entidade } from "../Entidade";
-import { TipoDePermissao } from "./TipoDePermissao";
 
-export class Usuario extends Entidade{
+export abstract class Usuario extends Entidade{
 
-    private Senha: string;
-    private Cpf: string;
-    private TipoDePermissao: TipoDePermissao;
-    private Coletas: Array<Coleta>;
+    public Cpf: string;
+    public Email:string;
 
-    constructor(id:number, nome:string, data:Date, senha:string, cpf:string, tipoDePermissao:TipoDePermissao, coletas: Array<Coleta>){
-        super(id,nome,data);
-        this.ValidarDadosObrigatorios(id, nome, senha);
-        this.ValidarCpf(cpf);
-        this.Senha = senha;
+    constructor(id:number, nome:string, cpf:string, email:string){
+        super(id,nome);
+        this.ValidarDadosObrigatorios(nome, cpf, email);
         this.Cpf = cpf;
-        this.TipoDePermissao = tipoDePermissao;
-        this.Coletas = coletas;
+        this.Email = email;
     }
 
-    private ValidarDadosObrigatorios(id:number, nome:string, senha:string): void{
-        const dados = [id,nome,senha];
-        dados.forEach(dado =>{
-            if(dado == null || dado == 0){
-                throw new Error('Não é possível criar um usuário sem as informações necessárias');
-            }
-        });  
+    private ValidarDadosObrigatorios(nome:string, cpf:string, email:string): void{
+        if(nome == null || nome == ''){
+            throw new Error('Não é possível criar um usuário sem nome');
+        }else if(email == null || email == ''){
+            throw new Error('Não é possível criar um usuário sem email');
+        }
+        this.ValidarCpf(cpf);
     }
 
     private ValidarCpf(cpf:string):void {
@@ -64,20 +56,4 @@ export class Usuario extends Entidade{
         }
     }
 
-    public ObterInformacoesDoUsuario(): UsuarioDto{
-        const dto: UsuarioDto = {
-            Id: this.Id,
-            Nome: this.Nome,
-            Data: this.Data,
-            Senha: this.Senha,
-            Cpf: this.Cpf,
-            TipoDePermissao: this.TipoDePermissao,
-            Coletas: this.Coletas
-        };
-        return dto;
-    }
-
-    public AlterarPemissao(tipoDePermissao:TipoDePermissao): void{
-        this.TipoDePermissao = tipoDePermissao;
-    }
 }

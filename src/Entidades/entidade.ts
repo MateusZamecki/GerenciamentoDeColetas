@@ -2,19 +2,15 @@ export abstract class Entidade{
 
     Id: number;
     Nome: string;
-    Data: Date;
+    DataDeCriacao: Date;
 
-    constructor(id: number, nome: string, data: Date){
+    constructor(id: number, nome: string){
         this.Id = id;
         this.Nome = nome;
-        this.Data = data;
+        this.DataDeCriacao = new Date();
     }
 
     public AlterarNome(nome: string): void{
         this.Nome = nome;
-    }
-
-    public AlterarData(data: Date): void{
-        this.Data = data;
     }
 }

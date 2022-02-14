@@ -1,8 +1,9 @@
 export interface ProdutoDto {
     Id: number;
     Nome: string;
-    Data: Date;
+    DataDeCriacao: Date;
     ValorDeVendaKg: number;
     CustoDeCompraKg: number;
     Quantidade: number;
+    IdDoCliente: number;
 }
