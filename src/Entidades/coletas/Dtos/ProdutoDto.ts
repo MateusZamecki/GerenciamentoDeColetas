@@ -1,9 +1,11 @@
+import { Coleta } from "../Coleta";
+import { EtiquetaDeProduto } from "../EtiquetaDeProduto";
+
 export interface ProdutoDto {
     Id: number;
-    Nome: string;
+    Etiqueta: EtiquetaDeProduto;
     DataDeCriacao: Date;
-    ValorDeVendaKg: number;
-    CustoDeCompraKg: number;
+    PrecoDeVenda: number;
+    PrecoDeCompra: number;
     Quantidade: number;
-    IdDoCliente: number;
 }

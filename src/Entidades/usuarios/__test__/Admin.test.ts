@@ -9,7 +9,7 @@ describe('Teste do admin', () => {
       
       expect(() => {
 
-        new Admin(1,'Mateus','06760952162','email@.com');
+        new Admin(1,'Teste','92006573039','email@.com');
 
       }).not.toThrowError();
 
@@ -19,13 +19,13 @@ describe('Teste do admin', () => {
 
       expect(() => {
 
-        new Admin(1,'Mateus','06760952162','email@.com');
+        new Admin(1,'Teste','92006573000','email@.com');
 
       }).toThrowError('O CPF informado está inválido');
 
       expect(() => {
 
-        new Admin(1,'Mateus','06760952162','email@.com');
+        new Admin(1,'Teste','','email@.com');
 
       }).toThrowError('Não é possivel criar um usuário com o CPF vazio');
 
@@ -35,7 +35,7 @@ describe('Teste do admin', () => {
 
       expect(() => {
 
-        new Admin(1,'Mateus','06760952162','email@.com');
+        new Admin(1,'Teste','92006573039','');
 
       }).toThrowError('Não é possível criar um usuário sem email');
 
@@ -43,11 +43,11 @@ describe('Teste do admin', () => {
 
     test('Deve alterar o nome do funcionario', () => {
 
-      var admin = new Admin(1,'Mateus','06760952162','email@.com');
+      var admin = new Admin(1,'Teste','92006573039','email@.com');
 
-      admin.AlterarNome('Mateus Zamecki');
+      admin.AlterarNome('Teste Teste');
 
-      expect(admin.Nome).toEqual('Mateus Zamecki');
+      expect(admin.Nome).toEqual('Teste Teste');
     });
 
 });

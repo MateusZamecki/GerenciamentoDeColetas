@@ -51,5 +51,4 @@ export class Funcionario extends Usuario{
         };
         return dto;
     }
-
 }

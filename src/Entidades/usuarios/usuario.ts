@@ -3,13 +3,14 @@ import { Entidade } from "../Entidade";
 export abstract class Usuario extends Entidade{
 
     public Cpf: string;
-    public Email:string;
-
+    public Email: string;
+    public Nome: string;
     constructor(id:number, nome:string, cpf:string, email:string){
-        super(id,nome);
+        super(id);
         this.ValidarDadosObrigatorios(nome, cpf, email);
         this.Cpf = cpf;
         this.Email = email;
+        this.Nome = nome;
     }
 
     private ValidarDadosObrigatorios(nome:string, cpf:string, email:string): void{
@@ -54,6 +55,10 @@ export abstract class Usuario extends Entidade{
         if (resto != parseInt(cpf.substring(10, 11))) {   
             throw new Error('O CPF informado está inválido');
         }
+    }
+
+    public AlterarNome(nome: string): void{
+        this.Nome = nome;
     }
 
 }
