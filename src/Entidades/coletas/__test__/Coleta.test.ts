@@ -31,6 +31,7 @@ describe('Teste da coleta', () => {
         coleta.AdicionarProduto(outroProduto);
 
         expect(coleta.Produtos.length).toEqual(2);
+        expect(coleta.Produtos).toContain(produto);
 
     });
 
@@ -39,13 +40,16 @@ describe('Teste da coleta', () => {
         var funcionario = new Funcionario(1,'Funcionario','92006573039','email@teste.com',[],[]);
         var cliente = new Cliente(1,'Cliente');
         var etiqueta = new EtiquetaDeProduto(1,'Osso');
+        var outraEtiqueta = new EtiquetaDeProduto(2,'Gordura');
         var produto = new Produto(0,etiqueta, 0, 0.30 ,10);
-        var outroProduto = new Produto(1,etiqueta, 0, 0.30 ,10);
+        var outroProduto = new Produto(1,outraEtiqueta, 0, 0.30 ,10);
         var coleta = new Coleta(1,[produto,outroProduto],funcionario,cliente);
 
         coleta.RemoverProduto(produto.Id);
 
         expect(coleta.Produtos.length).toEqual(1);
+        expect(coleta.Produtos.length).not.toEqual(2);
+        expect(coleta.Produtos).not.toContain(produto);
 
     });
 
@@ -60,7 +64,6 @@ describe('Teste da coleta', () => {
         coleta.AdicionarProduto(produto);
 
         expect(coleta.TotalProdutos).toEqual(3);
-
     });
 
     

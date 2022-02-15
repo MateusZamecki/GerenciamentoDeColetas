@@ -34,18 +34,18 @@ export class Coleta extends Entidade{
     }
 
     public RemoverProduto(idDoProduto: number): void{
-        let index = this.Produtos.findIndex(produto => {
-            return produto.Id == idDoProduto;
-        });
+        let index = this.Produtos.findIndex(produto => { return produto.Id == idDoProduto });
         this.Produtos.splice(index,1);
         this.NovoValorDeCompraDosProdutos();
     }
 
     public AlterarCliente(novoCliente: Cliente): void{
+        this.ValidarDadosObrigatorios(this.Funcionario, novoCliente);
         this.Cliente = novoCliente;
     }
 
     public AlterarFuncionario(novoFuncionario: Funcionario): void{
+        this.ValidarDadosObrigatorios(novoFuncionario, this.Cliente);
         this.Funcionario = novoFuncionario;
     }
 
